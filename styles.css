@@ -1,0 +1,357 @@
+/* RESET E ESTILOS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-principal: #2c1810; /* Marrom Escuro */
+    --cor-acento: burlywood; /* Bege/Madeira Claro */
+    --cor-fundo-claro: #f9f9f9;
+    --cor-texto-claro: #fff;
+    --cor-texto-escuro: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto-escuro);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER E NAVEGAÇÃO */
+header {
+    background-color: var(--cor-principal);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto-claro);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--cor-texto-claro);
+    padding: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cor-acento);
+    border-bottom: 2px solid var(--cor-acento);
+}
+
+/* BOTÃO HAMBURGUER (MOBILE) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-texto-claro);
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* SEÇÃO HERO (PARALLAX) */
+.hero {
+    background: linear-gradient(rgba(44,24,16,0.7), rgba(44,24,16,0.7)),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
+    center / cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-claro);
+    margin-top: 60px;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.hero-conteudo {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.hero-conteudo h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-conteudo p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--cor-acento);
+    color: var(--cor-principal);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #e0b48c;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* SEÇÕES GERAIS */
+section {
+    padding: 5rem 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--cor-principal);
+}
+
+/* SEÇÃO SOBRE E LOCALIZAÇÃO (AGORA SEM O PROBLEMA DE VISIBILIDADE) */
+.sobre {
+    background-color: var(--cor-fundo-claro);
+    text-align: center;
+}
+
+.sobre p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666666;
+}
+
+.localizacao {
+    background-color: var(--cor-fundo-claro);
+}
+
+.contato-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+.contato-info p {
+    margin: 0.8rem 0;
+}
+/* Estilo para os ícones */
+.contato-info i {
+    color: var(--cor-principal);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.mapa {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mapa iframe {
+    display: block;
+}
+
+/* SEÇÃO PRODUTOS */
+.produtos {
+    background-color: var(--cor-texto-claro);
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.produto-card {
+    background-color: var(--cor-fundo-claro);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.produto-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--cor-acento);
+}
+
+.produto-card h3 {
+    color: var(--cor-principal);
+    margin-bottom: 0.5rem;
+}
+
+.preco {
+    font-weight: bold;
+    color: var(--cor-principal);
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+
+/* ==================================== */
+/* ANIMAÇÕES (CORRIGIDAS) */
+/* ==================================== */
+
+/* Keyframes para animação */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* A CLASSE reveal-item AGORA INICIA INVISÍVEL */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: none; /* Desliga o transition para usar a animação @keyframes */
+}
+
+/* A classe 'active' adicionada pelo JS é que aplica a animação */
+.reveal-item.active {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Adicionando pequenos atrasos para itens em grid (produto-card) */
+.produtos .reveal-item:nth-child(1).active { animation-delay: 0.1s; }
+.produtos .reveal-item:nth-child(2).active { animation-delay: 0.3s; }
+.produtos .reveal-item:nth-child(3).active { animation-delay: 0.5s; }
+
+
+/* ==================================== */
+/* RESPONSIVIDADE (MEDIA QUERIES) */
+/* ==================================== */
+@media (max-width: 900px) {
+    .hero-conteudo h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    /* Mostrar botão hamburger e esconder links */
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-principal);
+        padding: 1rem 0;
+        display: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .nav-links a:hover {
+        border-bottom: none;
+    }
+
+    .hero {
+        margin-top: 50px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-conteudo p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+}

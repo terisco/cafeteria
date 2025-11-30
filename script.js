@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleMenu = () => {
         navLinks.classList.toggle('active');
-        // Opcional: Animar o ícone hamburger
         hamburger.classList.toggle('open');
     };
 
@@ -32,15 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // Inicia quando 15% do elemento é visível
+        threshold: 0.15 
     };
 
     const productObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adiciona a classe 'active' para iniciar a animação CSS (slideUp)
                 entry.target.classList.add('active');
-                // Remove a observação após a primeira aparição (melhora a performance)
                 productObserver.unobserve(entry.target);
             }
         });
@@ -62,18 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para aplicar/alternar o tema
     const toggleDarkMode = () => {
         const isDarkMode = body.classList.toggle('dark-mode');
-        // Salva a preferência no armazenamento local para que persista
+        // Salva a preferência no armazenamento local para que persista na próxima visita
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     };
 
     // ➡️ 3.1. Carregar o tema preferido ao carregar a página
     const loadTheme = () => {
-        // Verifica a preferência salva ou usa a preferência do sistema como fallback
         const savedTheme = localStorage.getItem('theme');
-        // Verifica se o sistema operacional prefere o modo escuro
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        // Se houver tema salvo (e for 'dark') OU se não houver tema salvo E o sistema preferir dark
+        // Aplica o tema se houver preferência salva OU se o sistema operacional preferir dark
         if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
             body.classList.add('dark-mode');
         }
@@ -84,6 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggleButton.addEventListener('click', toggleDarkMode);
     }
 
-    // Carregar o tema imediatamente
     loadTheme();
 });

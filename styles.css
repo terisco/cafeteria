@@ -1,357 +1,91 @@
-/* RESET E ESTILOS GLOBAIS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --cor-principal: #2c1810; /* Marrom Escuro */
-    --cor-acento: burlywood; /* Bege/Madeira Claro */
-    --cor-fundo-claro: #f9f9f9;
-    --cor-texto-claro: #fff;
-    --cor-texto-escuro: #333;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--cor-texto-escuro);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* HEADER E NAVEGAÇÃO */
-header {
-    background-color: var(--cor-principal);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--cor-texto-claro);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--cor-texto-claro);
-    padding: 5px 10px;
-    transition: color 0.3s, border-bottom 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--cor-acento);
-    border-bottom: 2px solid var(--cor-acento);
-}
-
-/* BOTÃO HAMBURGUER (MOBILE) */
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--cor-texto-claro);
-    margin: 5px 0;
-    transition: 0.4s;
-    border-radius: 2px;
-}
-
-/* SEÇÃO HERO (PARALLAX) */
-.hero {
-    background: linear-gradient(rgba(44,24,16,0.7), rgba(44,24,16,0.7)),
-    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
-    center / cover;
-    height: 100vh;
+/* CONTAINER PARA ÍCONES E HAMBURGER */
+.nav-icons {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--cor-texto-claro);
-    margin-top: 60px;
-    background-attachment: fixed;
-    text-align: center;
+    gap: 1.5rem; /* Espaçamento entre os ícones */
 }
 
-.hero-conteudo {
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+/* ESCONDE O TEXTO DOS LINKS NA NAVEGAÇÃO PRINCIPAL */
+.nav-links .nav-text {
+    display: none; 
 }
 
-.hero-conteudo h1 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-conteudo p {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 35px;
-    background-color: var(--cor-acento);
-    color: var(--cor-principal);
-    border-radius: 30px;
+/* ESTILO DO BOTÃO DE TEMA (LUA/SOL) */
+.theme-toggle-btn {
+    background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    padding: 0;
+    margin: 0;
+    transition: color 0.3s;
 }
 
-.btn:hover {
-    background-color: #e0b48c;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* Ajuste de cor e hover */
+.theme-toggle-btn:hover {
+    opacity: 0.7;
 }
 
-/* SEÇÕES GERAIS */
-section {
-    padding: 5rem 2rem;
+/* ÍCONES DE AÇÃO DENTRO DOS POSTS (CURTIR/COMENTAR) */
+.post-actions {
+    margin-bottom: 0.8rem;
 }
 
-h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--cor-principal);
+.post-actions .produto-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
 
-/* SEÇÃO SOBRE E LOCALIZAÇÃO (AGORA SEM O PROBLEMA DE VISIBILIDADE) */
-.sobre {
-    background-color: var(--cor-fundo-claro);
-    text-align: center;
-}
+/* GARANTE QUE O ÍCONE DE LUA/SOL MUDE DEPENDENDO DO TEMA */
 
-.sobre p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #666666;
-}
-
-.localizacao {
-    background-color: var(--cor-fundo-claro);
-}
-
-.contato-info {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    color: #555;
-}
-.contato-info p {
-    margin: 0.8rem 0;
-}
-/* Estilo para os ícones */
-.contato-info i {
-    color: var(--cor-principal);
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-.mapa {
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.mapa iframe {
+/* Esconde a Lua no Modo Dia */
+body:not(.dark-mode) .theme-toggle-btn .fa-moon {
     display: block;
 }
-
-/* SEÇÃO PRODUTOS */
-.produtos {
-    background-color: var(--cor-texto-claro);
+body:not(.dark-mode) .theme-toggle-btn .fa-sun {
+    display: none;
 }
 
-.produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+/* Esconde o Sol no Modo Noite */
+body.dark-mode .theme-toggle-btn .fa-moon {
+    display: none;
 }
-
-.produto-card {
-    background-color: var(--cor-fundo-claro);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.5s;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.produto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.produto-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: var(--cor-acento);
-}
-
-.produto-card h3 {
-    color: var(--cor-principal);
-    margin-bottom: 0.5rem;
-}
-
-.preco {
-    font-weight: bold;
-    color: var(--cor-principal);
-    font-size: 1.6rem;
+body.dark-mode .theme-toggle-btn .fa-sun {
     display: block;
-    margin-top: 1rem;
-}
-
-/* FOOTER */
-footer {
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    text-align: center;
-    padding: 1.5rem 0;
-    font-size: 0.9rem;
+    color: #ffd700; /* Dourado para o sol no modo escuro */
 }
 
 
-/* ==================================== */
-/* ANIMAÇÕES (CORRIGIDAS) */
-/* ==================================== */
-
-/* Keyframes para animação */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* A CLASSE reveal-item AGORA INICIA INVISÍVEL */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: none; /* Desliga o transition para usar a animação @keyframes */
-}
-
-/* A classe 'active' adicionada pelo JS é que aplica a animação */
-.reveal-item.active {
-    animation: slideUp 0.8s ease-out forwards;
-}
-
-/* Adicionando pequenos atrasos para itens em grid (produto-card) */
-.produtos .reveal-item:nth-child(1).active { animation-delay: 0.1s; }
-.produtos .reveal-item:nth-child(2).active { animation-delay: 0.3s; }
-.produtos .reveal-item:nth-child(3).active { animation-delay: 0.5s; }
-
-
-/* ==================================== */
-/* RESPONSIVIDADE (MEDIA QUERIES) */
-/* ==================================== */
-@media (max-width: 900px) {
-    .hero-conteudo h1 {
-        font-size: 3rem;
-    }
-}
-
+/* MEDIA QUERY PARA O MOBILE: REVELAR O TEXTO E TIRAR OS ÍCONES */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    /* Mostrar botão hamburger e esconder links */
-    .hamburger {
-        display: block;
-    }
-
+    /* Exibir os links de navegação como lista de texto novamente no mobile */
     .nav-links {
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 60px; 
-        left: 0;
-        width: 100%;
-        background-color: var(--cor-principal);
-        padding: 1rem 0;
-        display: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
+        /* ... Seus estilos mobile existentes ... */
+        gap: 0;
     }
     
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-    .nav-links a:hover {
-        border-bottom: none;
-    }
-
-    .hero {
-        margin-top: 50px;
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        width: 100%;
     }
 
-    .hero-conteudo h1 {
-        font-size: 2.5rem;
+    /* Mostrar o texto (Início, Sobre, etc.) e manter o ícone na navegação mobile */
+    .nav-links .nav-text {
+        display: inline; 
+        font-weight: 500;
     }
-
-    .hero-conteudo p {
+    
+    .nav-links a .fas {
         font-size: 1.2rem;
     }
-}
 
-@media (max-width: 480px) {
-    .hero-conteudo h1 {
-        font-size: 2rem;
-    }
-    .btn {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-    h2 {
-        font-size: 2rem;
+    /* Move o botão de tema para que fique visível, se desejar */
+    .theme-toggle-btn {
+        /* Se quiser que o botão de tema fique dentro do menu suspenso, não mexa */
     }
 }

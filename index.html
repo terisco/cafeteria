@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -6,33 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Café Aroma | Sabor Autêntico</title>
+    <title>Café Aroma | Sabor Autêntico (Gram)</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">Café Aroma</div>
+        <nav class="navbar container"> <div class="logo">Café Aroma</div>
 
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="nav-icons">
+                
+                <button class="theme-toggle-btn" aria-label="Alternar modo escuro/claro">
+                    <i class="fas fa-moon"></i> 
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="#home" title="Início"><i class="fas fa-home"></i><span class="nav-text">Início</span></a></li>
+                    <li><a href="#produtos" title="Produtos"><i class="fas fa-mug-hot"></i><span class="nav-text">Produtos</span></a></li>
+                    <li><a href="#sobre" title="Sobre"><i class="fas fa-info-circle"></i><span class="nav-text">Sobre</span></a></li>
+                    <li><a href="#localizacao" title="Localização"><i class="fas fa-map-marker-alt"></i><span class="nav-text">Localização</span></a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
-            
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#localizacao">Localização</a></li>
-            </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="hero-conteudo">
-                <h1>Bem-vindo ao Café Aroma</h1>
+                <h1>Bem-vindo ao Café Aroma!</h1>
                 <p>Descubra o sabor autêntico do café artesanal</p>
                 <a href="#produtos" class="btn">Conheça Nossos Cafés</a>
             </div>
@@ -47,28 +53,49 @@
         
         <section id="produtos" class="produtos">
             <div class="container">
-                <h2>Nossos Produtos</h2>
+                <h2>Nossos Cafés Especiais</h2>
                 <div class="produtos-grid">
                     
                     <article class="produto-card reveal-item">
-                        <div class="produto-icon">☕</div>
-                        <h3>Espresso</h3>
-                        <p>Café puro e intenso, preparado na pressão perfeita.</p>
-                        <span class="preco">R$ 8,00</span>
+                        <img src="https://via.placeholder.com/600x400?text=Espresso+Puro" alt="Foto de um copo de espresso" class="produto-imagem">
+                        <div class="produto-conteudo">
+                            <div class="post-actions">
+                                <i class="far fa-heart produto-icon"></i>
+                                <i class="far fa-comment produto-icon"></i>
+                                <i class="fas fa-share-alt produto-icon"></i>
+                            </div>
+                            <h3>Espresso</h3>
+                            <p>Café puro e intenso, preparado na pressão perfeita.</p>
+                            <span class="preco">R$ 8,00</span>
+                        </div>
                     </article>
 
                     <article class="produto-card reveal-item">
-                        <div class="produto-icon">🥤</div>
-                        <h3>Cappuccino</h3>
-                        <p>Cremoso e suave, com espuma de leite aveludada.</p>
-                        <span class="preco">R$ 12,00</span>
+                        <img src="https://via.placeholder.com/600x400?text=Cappuccino+Cremoso" alt="Foto de um cappuccino cremoso" class="produto-imagem">
+                        <div class="produto-conteudo">
+                             <div class="post-actions">
+                                <i class="far fa-heart produto-icon"></i>
+                                <i class="far fa-comment produto-icon"></i>
+                                <i class="fas fa-share-alt produto-icon"></i>
+                            </div>
+                            <h3>Cappuccino</h3>
+                            <p>Cremoso e suave, com espuma de leite aveludada.</p>
+                            <span class="preco">R$ 12,00</span>
+                        </div>
                     </article>
 
                     <article class="produto-card reveal-item">
-                        <div class="produto-icon">🧊</div>
-                        <h3>Café Gelado</h3>
-                        <p>Refrescante e saboroso para dias quentes de verão.</p>
-                        <span class="preco">R$ 10,00</span>
+                        <img src="https://via.placeholder.com/600x400?text=Iced+Coffee+Refrescante" alt="Foto de um café gelado" class="produto-imagem">
+                        <div class="produto-conteudo">
+                             <div class="post-actions">
+                                <i class="far fa-heart produto-icon"></i>
+                                <i class="far fa-comment produto-icon"></i>
+                                <i class="fas fa-share-alt produto-icon"></i>
+                            </div>
+                            <h3>Café Gelado</h3>
+                            <p>Refrescante e saboroso para dias quentes de verão.</p>
+                            <span class="preco">R$ 10,00</span>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -93,7 +120,7 @@
     </main>
 
     <footer>
-        <p>© 2025 Café Aroma - Todos os direitos reservados</p>
+        <p>© 2025 Café Aroma - Todos os direitos reservados de Sidiney Matheus</p>
     </footer>
 
     <script src="script.js"></script>

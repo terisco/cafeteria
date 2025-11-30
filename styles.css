@@ -1,11 +1,106 @@
-/* CONTAINER PARA ÍCONES E HAMBURGER */
+/* RESET E ESTILOS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🌙 VARIÁVEIS DO TEMA (DIA) ☀️ */
+:root {
+    --fundo-principal: #ffffff; /* Fundo principal: Branco */
+    --fundo-cartao: #f8f8f8; /* Cartões/Elementos: Cinza bem claro */
+    --texto-principal: #262626; /* Texto: Quase preto */
+    --texto-secundario: #8e8e8e; /* Texto de apoio: Cinza médio */
+    --borda-suave: #dbdbdb; /* Bordas e divisores */
+    --sombra-cartao: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    --acento-botao: #0095f6; /* Azul de Ação */
+    --acento-texto-botao: #ffffff;
+    --gradiente-logo: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* 🌑 VARIÁVEIS DO TEMA (NOITE/DARK MODE) 🦉 */
+body.dark-mode {
+    --fundo-principal: #121212;
+    --fundo-cartao: #1e1e1e;
+    --texto-principal: #f5f5f5;
+    --texto-secundario: #a3a3a3;
+    --borda-suave: #363636;
+    --sombra-cartao: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--texto-principal);
+    background-color: var(--fundo-principal); 
+    transition: background-color 0.5s, color 0.5s; 
+}
+
+.container {
+    max-width: 935px; /* Tamanho típico do feed Instagram */
+    margin: 0 auto;
+    padding: 0 1rem; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--acento-botao); 
+}
+
+/* HEADER/NAVBAR - Estilo Clean e Fixo */
+header {
+    background-color: var(--fundo-principal);
+    border-bottom: 1px solid var(--borda-suave); 
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    height: 60px; 
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+    background: var(--gradiente-logo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* CONTÊINER DE ÍCONES (NAVEGAÇÃO E TEMA) */
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Espaçamento entre os ícones */
+    gap: 1.5rem; 
 }
 
-/* ESCONDE O TEXTO DOS LINKS NA NAVEGAÇÃO PRINCIPAL */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+/* ÍCONES DA NAVEGAÇÃO */
+.nav-links a {
+    color: var(--texto-principal);
+    padding: 0;
+    font-size: 1.5rem; 
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* ESCONDE O TEXTO NA NAVEGAÇÃO PRINCIPAL (SÓ MOSTRA ÍCONES) */
 .nav-links .nav-text {
     display: none; 
 }
@@ -22,49 +117,282 @@
     transition: color 0.3s;
 }
 
-/* Ajuste de cor e hover */
 .theme-toggle-btn:hover {
     opacity: 0.7;
 }
 
-/* ÍCONES DE AÇÃO DENTRO DOS POSTS (CURTIR/COMENTAR) */
-.post-actions {
-    margin-bottom: 0.8rem;
-}
+/* Troca de Ícones Dark Mode/Light Mode */
 
-.post-actions .produto-icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-}
-
-/* GARANTE QUE O ÍCONE DE LUA/SOL MUDE DEPENDENDO DO TEMA */
-
-/* Esconde a Lua no Modo Dia */
-body:not(.dark-mode) .theme-toggle-btn .fa-moon {
-    display: block;
-}
+/* Esconde o Sol no Modo Dia */
 body:not(.dark-mode) .theme-toggle-btn .fa-sun {
     display: none;
 }
-
-/* Esconde o Sol no Modo Noite */
+/* Esconde a Lua no Modo Noite */
 body.dark-mode .theme-toggle-btn .fa-moon {
     display: none;
 }
+/* Colore o Sol no Modo Noite */
 body.dark-mode .theme-toggle-btn .fa-sun {
-    display: block;
-    color: #ffd700; /* Dourado para o sol no modo escuro */
+    color: #ffd700; 
+}
+
+/* BOTÃO HAMBURGUER (Mantenha o código original para a funcionalidade) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--texto-principal);
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* SEÇÃO HERO - TRANSFORMAÇÃO */
+.hero {
+    background: linear-gradient(rgba(44,24,16,0.7), rgba(44,24,16,0.7)),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
+    center / cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--acento-texto-botao);
+    background-attachment: fixed;
+    text-align: center;
+    padding-top: 0;
+}
+
+.hero-conteudo {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.hero-conteudo h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-conteudo p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* BOTÃO DE AÇÃO */
+.btn {
+    padding: 8px 16px; 
+    background-color: var(--acento-botao);
+    color: var(--acento-texto-botao);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem; 
+    font-weight: 600;
+    text-transform: none;
+    transition: background-color 0.3s;
+    box-shadow: none;
+}
+
+.btn:hover {
+    background-color: #0077c9; 
+    transform: none; 
 }
 
 
-/* MEDIA QUERY PARA O MOBILE: REVELAR O TEXTO E TIRAR OS ÍCONES */
-@media (max-width: 768px) {
-    /* Exibir os links de navegação como lista de texto novamente no mobile */
-    .nav-links {
-        /* ... Seus estilos mobile existentes ... */
-        gap: 0;
+/* SEÇÕES GERAIS */
+section {
+    padding: 4rem 1rem;
+    background-color: var(--fundo-principal);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--texto-principal);
+}
+
+/* SEÇÃO SOBRE E LOCALIZAÇÃO */
+.sobre p {
+    color: var(--texto-secundario);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+.contato-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: var(--texto-principal);
+}
+.contato-info p {
+    margin: 0.8rem 0;
+}
+.contato-info i {
+    color: var(--acento-botao);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.mapa {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+    border: 1px solid var(--borda-suave);
+}
+.mapa iframe {
+    display: block;
+}
+
+/* SEÇÃO PRODUTOS (O FEED) */
+.produtos-grid {
+    display: flex;
+    flex-direction: column; /* Feed vertical de posts */
+    gap: 2.5rem;
+    max-width: 600px; /* Largura do post */
+    margin: 0 auto;
+}
+
+.produto-card {
+    background-color: var(--fundo-cartao);
+    padding: 0;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid var(--borda-suave);
+    box-shadow: var(--sombra-cartao);
+    overflow: hidden; 
+    transform-style: preserve-3d; /* Habilita o 3D sutil */
+}
+
+/* EFEITO 3D SUTIL NO HOVER */
+.produto-card:hover {
+    transform: translateZ(5px) scale(1.005); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.produto-imagem { 
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.produto-conteudo {
+    padding: 1rem;
+}
+
+/* ÍCONES DE AÇÃO (CURTIR/COMENTAR) */
+.post-actions {
+    margin-bottom: 0.8rem;
+}
+.post-actions .produto-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: var(--texto-principal);
+    cursor: pointer;
+}
+
+.produto-card h3 {
+    color: var(--texto-principal);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.preco {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    margin-top: 0.5rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--fundo-principal); 
+    color: var(--texto-secundario); 
+    border-top: 1px solid var(--borda-suave);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+
+/* ==================================== */
+/* ANIMAÇÕES (REVEAL ON SCROLL) */
+/* ==================================== */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
-    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: none; 
+}
+
+.reveal-item.active {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Adicionando pequenos atrasos */
+.produtos .reveal-item:nth-child(1).active { animation-delay: 0.1s; }
+.produtos .reveal-item:nth-child(2).active { animation-delay: 0.3s; }
+.produtos .reveal-item:nth-child(3).active { animation-delay: 0.5s; }
+
+
+/* ==================================== */
+/* RESPONSIVIDADE (MEDIA QUERIES) */
+/* ==================================== */
+@media (max-width: 900px) {
+    .hero-conteudo h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mostrar botão hamburger e esconder links */
+    .hamburger {
+        display: block;
+    }
+
+    /* Esconde os links no Mobile e mostra o Hamburger */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: var(--fundo-cartao);
+        padding: 1rem 0;
+        display: none;
+        border-top: 1px solid var(--borda-suave);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* EXIBE TEXTO E ÍCONE NO MENU MOBILE */
     .nav-links a {
         display: flex;
         align-items: center;
@@ -72,20 +400,30 @@ body.dark-mode .theme-toggle-btn .fa-sun {
         padding: 10px 15px;
         font-size: 1rem;
         width: 100%;
+        color: var(--texto-principal);
     }
-
-    /* Mostrar o texto (Início, Sobre, etc.) e manter o ícone na navegação mobile */
     .nav-links .nav-text {
         display: inline; 
         font-weight: 500;
     }
-    
     .nav-links a .fas {
         font-size: 1.2rem;
     }
 
-    /* Move o botão de tema para que fique visível, se desejar */
-    .theme-toggle-btn {
-        /* Se quiser que o botão de tema fique dentro do menu suspenso, não mexa */
+    .hero-conteudo h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
     }
 }

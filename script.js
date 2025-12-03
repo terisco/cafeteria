@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==================================== */
     /* 1. MENU HAMBURGER RESPONSIVO */
     /* ==================================== */
+    
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links a');
